@@ -15,7 +15,7 @@
         </tr>
         <% @actors.each do |actor| %>
           <tr>
-            <td><%= image_tag actor.image_url %></td>
+            <td><%= image_tag actor.image_url unless actor.image_url.blank? %></td>
             <td><%= actor.name %></td>
             <td><%= actor.bio %></td>
             <td><%= actor.birth_date %></td>
@@ -23,6 +23,9 @@
             <% if !actor.alive %>
               <td><%= actor.death_date %></td>
               <td><%= actor.death_place %></td>
+            <% else %>
+              <td>NA</td>
+              <td>NA</td>
             <% end %>          
           </tr>
         <% end %>
